@@ -2,9 +2,9 @@
 
 - Impossible de savoir sur quel composant on se trouve avec la navigation clavier
 - Impossible de sélectionner un film (va directement sur le favoris) avec la navigation clavier
-- Obliger d'utiliser Tab pour se déplacer sur le site (donc tout le temps en avant) au lieu de pouvoir utiliser les flèches directionnel, utiles pour revenir en arrière
-- Pas d'explications sur le rôle de l'étoile jaune (favoris ?)
-- 
+- Obliger d'utiliser Tab pour se déplacer sur le site (donc tout le temps en avant) au lieu de pouvoir utiliser les flècherôles directionnel, utiles pour revenir en arrière
+- Pas d'explications sur le  de l'étoile jaune (favoris ?)
+- Pastille verte / rouge, impossible de savoir ce que ça représente
 
 3 éléments marquants corrigés : 
 Elem 1 : Impact avant après
