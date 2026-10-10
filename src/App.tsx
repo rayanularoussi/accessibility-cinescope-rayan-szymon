@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import posterAube from "./assets/aube.svg";
 import posterMemoire from "./assets/memoire.svg";
 import posterOrbite from "./assets/orbite.svg";
@@ -27,8 +27,8 @@ export default function App() {
       <div className="topbar">
         <div className="brand" onClick={() => setQuery("")}>CinéScope</div>
         <div className="menu">
-          <a href="#programme">Programme</a>
-          <a href="#infos">Informations</a>
+          <a tabIndex={0} href="#programme">Programme</a>
+          <a tabIndex={0} href="#infos">Informations</a>
         </div>
       </div>
 
@@ -44,29 +44,42 @@ export default function App() {
 
         <div id="programme" className="film-grid">
           {filteredFilms.map((film) => (
-            <div className="film-card" key={film.id} onClick={() => setSelected(film.title)}>
-              <img src={film.poster} />
-              <div className="film-content">
-                <div className={film.available ? "availability available" : "availability unavailable"} />
-                <h4>{film.title}</h4>
-                <p>{film.genre} · {film.time}</p>
-                <button
-                  className="favorite"
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    toggleFavorite(film.id);
-                  }}
-                >
-                  {favorites.includes(film.id) ? "★" : "☆"}
-                </button>
+            <div tabIndex={0} onKeyDown={(event) => {
+                if (event.key === "Enter")
+                  setSelected(film.title);
+                if (event.key === " ") 
+                  toggleFavorite(film.id);
+              }}>
+              <div className="film-card" key={film.id} onClick={() => setSelected(film.title)}>
+                <img src={film.poster} />
+                <div className="film-content">
+                  <text>{film.available ? "" : "Places Non Disponibles"}</text>
+                    
+                    <h4>{film.title}</h4>
+                    <p>{film.genre} · {film.time}</p>
+                    <button className="info-button" onClick={(event) => {
+                      setSelected(film.title);
+                    }} aria-label={`Voir les séances disponibles de ${film.title}`}>
+                      Voir les séances disponibles de {film.title}
+                    </button>
+                    <button
+                      className="favorite"
+                      title={favorites.includes(film.id) ? "Retirer des favoris" : "Ajouter aux favoris"}
+                      aria-label={favorites.includes(film.id) ? "Retirer des favoris" : "Ajouter aux favoris"}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        toggleFavorite(film.id);
+                      }}
+                    >
+                      {favorites.includes(film.id) ? "★" : "☆"}
+                  </button>
+                </div>
               </div>
             </div>
           ))}
         </div>
-
         {selected && <p className="selection">Film sélectionné : {selected}</p>}
       </div>
     </>
   );
 }
-

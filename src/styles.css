@@ -2,7 +2,6 @@
 * { box-sizing: border-box; }
 body { margin: 0; }
 button, input { font: inherit; }
-button:focus, input:focus, a:focus { outline: none; }
 .topbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem max(1.25rem, calc((100% - 70rem) / 2)); background: #16192a; color: white; }
 .brand { font-size: 1.35rem; font-weight: 800; cursor: pointer; }
 .menu { display: flex; gap: 1.25rem; }
@@ -21,4 +20,4 @@ button:focus, input:focus, a:focus { outline: none; }
 .unavailable { background: #d44343; }
 .favorite { position: absolute; top: .65rem; right: .75rem; border: 0; background: transparent; color: #9b7200; font-size: 1.55rem; cursor: pointer; }
 .selection { margin-top: 2rem; padding: 1rem; background: #e1e7ff; border-radius: .5rem; }
-
+.info-button { margin-top: 1rem; padding: .5rem 1rem; border: 0; background: #6674c5; color: white; border-radius: .5rem; cursor: pointer; }
